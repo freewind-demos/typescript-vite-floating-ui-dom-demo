@@ -3,7 +3,8 @@
     "start": "vite --open"
   },
   "dependencies": {
-    "ts-node": "10.9.1"
+    "ts-node": "10.9.1",
+    "@floating-ui/dom": "^1.2.3"
   },
   "devDependencies": {
     "@types/node": "18.14.6",

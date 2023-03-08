@@ -1,5 +1,7 @@
-TypeScript Vite Demo
+TypeScript Vite "@floating-ui/dom" Demo
 ====================
+
+Followed: https://floating-ui.com/docs/tutorial
 
 ```
 npm install
