@@ -1,6 +1,6 @@
 import './Hello.pcss';
 
-import { arrow, computePosition, flip, offset, shift } from '@floating-ui/dom';
+import {arrow, computePosition, flip, offset, shift} from '@floating-ui/dom';
 
 const button = document.querySelector('#button')!;
 const tooltip = document.querySelector<HTMLElement>('#tooltip')!;
@@ -12,16 +12,16 @@ function update() {
         middleware: [
             offset(6),
             flip(),
-            shift({ padding: 5 }),
-            arrow({ element: arrowElement }),]
-    }).then(({ x, y, placement, middlewareData }) => {
+            shift({padding: 5}),
+            arrow({element: arrowElement}),]
+    }).then(({x, y, placement, middlewareData}) => {
         Object.assign(tooltip.style, {
             left: `${x}px`,
             top: `${y}px`,
         });
 
         // Accessing the data
-        const { x: arrowX, y: arrowY } = middlewareData.arrow;
+        const {x: arrowX, y: arrowY} = middlewareData.arrow!;
 
         const staticSide = {
             top: 'bottom',
@@ -50,11 +50,11 @@ function hideTooltip() {
 }
 
 
-[
+([
     ['mouseenter', showTooltip],
     ['mouseleave', hideTooltip],
     ['focus', showTooltip],
     ['blur', hideTooltip],
-].forEach(([event, listener]) => {
+] as const).forEach(([event, listener]) => {
     button.addEventListener(event, listener);
 });
